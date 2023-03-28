@@ -1,0 +1,18 @@
+<html>
+<script>
+function getdate()
+{
+dt=new Date();
+f.dor.value=dt.getDate() + "/" + (dt.getMonth()+1) + "/" + (dt.getYear()+1900);
+}
+</script>
+<h3>SET VEHICLE STATUS</h3><hr><body onLoad="getdate()">
+<form name=f method=post action='setvehstat.jsp'>
+<table><tr><td>Vehicle Reg.No</td><td><input type=text name=vregno size=12 required></td></tr>
+<tr><td>Status</td><td>Allow <input type=radio name=r1 value='Allow'>Stop <input type=radio name=r1 value='Stop' checked></td></tr>
+<tr><td>Posted On</td><td><input type=text name=dor size=12 readonly>
+<tr><td>Remarks</td><td><textarea rows=3 cols=50 name=rmks required></textarea></td></tr>
+<tr><td></td><td><input type=submit value='Set Status'></td></tr>
+</table>
+</form>
+</html>

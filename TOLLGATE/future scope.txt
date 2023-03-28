@@ -1,0 +1,3 @@
+Future Scope :-
+* Use of barcodes to identify tollpass
+* Provide facility to read the vehicle registration number using RF(Sensor)

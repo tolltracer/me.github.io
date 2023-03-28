@@ -1,0 +1,25 @@
+
+create table rta(usid varchar2(20),pswd varchar2(20),rname varchar2(30));
+
+insert into rta values('Admin','Admin','Administrator');
+
+commit;
+
+create table tollopr (usid varchar2(20),pswd varchar2(20), tname varchar2(30),location varchar2(30));
+insert into tollopr values('T1','T1','Rajesh','BHEL');
+insert into tollopr values('T2','T2','Ramesh','LB Nagar');
+insert into tollopr values('T3','T3','Harish','Nampally');
+insert into tollopr values('T4','T4','Krishna','Nagole');
+insert into tollopr values('T5','T5','Venkat','Vijayawada');
+
+create table regdvehs(vregno varchar2(20) primary key,oname varchar2(20),dor varchar2(10),oaddr varchar2(100),cno varchar2(10),emid varchar2(20),manf varchar2(20),vname varchar2(20),vtype varchar2(20),eno varchar2(20),chno varchar2(20));
+
+create table tollpass(vregno varchar2(12),tpassid number,depamt number);
+
+create table crime(crid varchar2(10),crpwd varchar2(20), crname varchar2(30));
+
+insert into crime values('Cr1','Cr1','Vivek');
+
+ create table crimeveh(vregno varchar2(15) primary key,doreq varchar2(10), remarks varchar2(100),docap varchar2(10),toprid varchar2(10));
+
+ create table attendance(tollid varchar2(10),vid varchar2(15),passtype varchar2(10), dot varchar2(10), tim varchar2 (10),dir varchar2(15),jrny varchar2(15),fare number);

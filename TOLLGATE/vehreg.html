@@ -1,0 +1,173 @@
+<html>
+<script>
+function getdate()
+{
+dt=new Date();
+f.dor.value=dt.getDate() + "/" + (dt.getMonth()+1) + "/" + (dt.getYear()+1900);
+}
+function disp_date(frm)
+{
+d=new Date();
+frm.dor.value=d.getDate() + "/" + (d.getMonth()+1) + "/" + (d.getYear()+1900);
+}
+
+function validateForm(f) {
+
+var x = f.oemail.value;
+
+  var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+
+    if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+	fg3=1;
+	fg=1;
+        return false;
+    }
+
+usid=f.vrno.value.trim();
+if (usid == null || usid == "") {
+        alert("Vehicle No must be filled out");
+        return false;
+    }
+
+usid=f.vname.value.trim();
+if (usid == null || usid == "") {
+        alert("Vehicle Name must be filled out");
+        return false;
+    }
+
+usid=f.vmanf.value.trim();
+if (usid == null || usid == "") {
+        alert("Manufacturer Name must be filled out");
+        return false;
+    }
+
+
+nam=f.oname.value.trim();
+if (nam == null || nam == "") {
+        alert("First name must be filled out");
+        return false;
+    }
+
+//alert(nam);
+
+var fg=0;
+//alert("ready");
+var phoneno = f.ocno.value;  
+//alert(phoneno.length);
+if(phoneno.length<10)
+{
+alert("10 Digits Number");
+fg=1;
+return false;
+}
+else
+{
+if(isNaN(phoneno)){
+alert("Invalid Number ");
+fg=1;
+return false;
+}
+}
+
+//alert("ready");
+var phoneno = f.veno.value;  
+//alert(phoneno.length);
+if(phoneno.length<5)
+{
+alert("Require 5 Digits Min for Engine Number");
+fg=1;
+return false;
+}
+else
+{
+if(isNaN(phoneno)){
+alert("Invalid Engine Number ");
+fg=1;
+return false;
+}
+}
+
+//alert("ready");
+var phoneno = f.vchno.value;  
+//alert(phoneno.length);
+if(phoneno.length<5)
+{
+alert("Require 5 Digits Min for Chasis Number");
+fg=1;
+return false;
+}
+else
+{
+if(isNaN(phoneno)){
+alert("Invalid Chasis Number ");
+fg=1;
+return false;
+}
+}
+
+fg2=0;
+nam=f.oname.value;
+//alert(nam);
+for(i=0;i<nam.length;i++)
+{
+ch=nam.charCodeAt(i);
+if( (ch>=65 && ch<=90) || (ch>=97 && ch<=122) || ch==32){}
+else{
+fg=1;
+fg2=1;
+i=nam.length;
+}
+}
+
+if(fg2==1){
+alert("Invalid Name");
+return false;
+}
+
+fg2=0;
+/*
+nam=f.vname.value;
+//alert(nam);
+for(i=0;i<nam.length;i++)
+{
+ch=nam.charCodeAt(i);
+if( (ch>=65 && ch<=90) || (ch>=97 && ch<=122) || ch==32){}
+else{
+fg=1;
+fg2=1;
+i=nam.length;
+}
+}
+if(fg2==1){
+alert("Invalid Vendor Name");
+return;
+}
+
+*/
+fg3=0;
+//alert(fg + ":" + fg2);
+if(fg==0)
+return true;
+else
+return false;
+
+}
+</script>
+<body onLoad='getdate()'>
+<h3>VEHICLE REGISTRATION</h3><hr><form name='f' method=post action='vehreg.jsp'>
+<table><th>Owner Details</th>
+<tr><td>Owner Name</td><td><input type=text size=15 name=oname></td><td>Regn.Date</td><td><input type=text name=dor size=12 readonly></td></tr>
+<tr><td>Address</td><td><textarea name=oaddr rows=5 cols=20></textarea></td></tr>
+<tr><td>Contact no</td><td><input type=number size=10 name=ocno></td><td>Email-Id</td><td><input type=text size=20 name=oemail></td>
+</table><br>
+<table><th>Vehicle Details</th>
+<tr><td>Manufacturer</td><td><input type=text size=15 name=vmanf></td></tr>
+<tr><td>Vehicle Name</td><td><input type=text name=vname size=15></td><td>Vehicle Type</td><td><select name='vtype'><option>2 Wheeler</option><option>4 Wheeler</option></td></tr>
+<tr><td>Engine No</td><td><input type=text size=10 name=veno></td><td>Chasis No</td><td><input type=text size=20 name=vchno></td>
+<tr><td>Vehicle Regn No</td><td><input type=text name=vrno size=12></td></tr><tr></tr>
+<tr><td>Vehicle Image</td><td><input type=file name=imgname ></td></tr><tr></tr>
+<tr><td></td><td><input type=submit value='Register' onClick="return validateForm(f)"></td></tr>
+</table></form>
+</html>
